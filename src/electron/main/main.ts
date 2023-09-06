@@ -15,8 +15,8 @@ async function handleFileOpen() {
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1200,
+    height: 800,
     webPreferences: {
       preload: join(__dirname, "../preload/preload.js"),
     },
@@ -27,7 +27,7 @@ function createWindow() {
     mainWindow.loadURL("http://localhost:5173"); // Open the DevTools.
     mainWindow.webContents.openDevTools();
   } else {
-    mainWindow.loadFile(join(__dirname, "../../index.html"));
+    mainWindow.loadFile(join(__dirname, "../../../index.html"));
   }
   // mainWindow.loadURL( //this doesn't work on macOS in build and preview mode
   //     isDev ?
