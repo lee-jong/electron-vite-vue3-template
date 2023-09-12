@@ -1,4 +1,5 @@
 import "vuetify/styles";
+import "../../styles/_index.scss";
 import { createVuetify } from "vuetify";
 import { mdi } from "vuetify/iconsets/mdi";
 import "@mdi/font/css/materialdesignicons.css";

@@ -6,7 +6,7 @@
 
 <style scoped>
 .section {
-  height: 70%;
+  height: calc(70% - 52px);
   background-color: red;
 }
 </style>
