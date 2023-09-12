@@ -1,0 +1,23 @@
+.divider-x {
+  border: 1px solid black;
+  height: 1px !important;
+  width: 100%;
+}
+
+.divider-y {
+  border: 1px solid black;
+  width: 1px !important;
+  height: 100%;
+}
+
+.v-overlay__content {
+  top: 102px !important;
+  bottom: 0px !important;
+  width: calc(100vw * 0.25) !important;
+  margin: 0;
+  left: calc(100% - 400px) !important;
+  padding: 0;
+  width: 400px !important;
+
+  background-color: red;
+}

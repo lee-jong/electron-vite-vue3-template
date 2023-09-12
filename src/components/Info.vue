@@ -60,7 +60,6 @@ import Title from "../components/commom/Title.vue";
 
 <style scoped>
 .section {
-  width: 30%;
   height: 100%;
   padding: 0 30px;
 }

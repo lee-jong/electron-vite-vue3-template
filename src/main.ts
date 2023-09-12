@@ -3,6 +3,8 @@ import App from "./App.vue";
 import router from "./router";
 import vuetify from "./plugins/vuetify/vuetify";
 import { loadFonts } from "./plugins/vuetify/webfontloader";
+import { createPinia } from "pinia";
+const pinia = createPinia();
 
 // import soket from "websocket";
 // const ClientSoket = soket.w3cwebsocket;
@@ -37,4 +39,4 @@ import { loadFonts } from "./plugins/vuetify/webfontloader";
 
 loadFonts();
 
-createApp(App).use(router).use(vuetify).mount("#app");
+createApp(App).use(router).use(pinia).use(vuetify).mount("#app");

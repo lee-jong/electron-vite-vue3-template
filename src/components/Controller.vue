@@ -2,7 +2,7 @@
 import Title from "../components/commom/Title.vue";
 </script>
 <template>
-  <div class="section relative d-flex ml-15">
+  <div class="section relative d-flex">
     <!-- 1 -->
     <div class="group_1 d-flex flex-column">
       <Title text="[로봇 자세 제어]" />
@@ -46,14 +46,13 @@ import Title from "../components/commom/Title.vue";
 <style scoped lang="scss">
 .section {
   position: relative;
-  height: calc(30% - 52px);
 }
 
 .robot-controller {
   background-color: gray;
   border-radius: 200px 200px 0 0;
   width: 300px;
-  height: 200px;
+  height: 100px;
 
   div {
     width: 50%;
@@ -66,7 +65,7 @@ import Title from "../components/commom/Title.vue";
 
 .group_2 {
   position: relative;
-  width: 350px;
+  width: 300px;
 
   .zoom {
     position: absolute;
@@ -75,14 +74,16 @@ import Title from "../components/commom/Title.vue";
   }
 
   .camera-controller {
+    width: 300px;
     margin-top: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   .camera-controller > div {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     display: grid;
     grid-template-columns: repeat(2, 50%);
     gap: 10px;
@@ -117,7 +118,7 @@ import Title from "../components/commom/Title.vue";
   textarea {
     background-color: gray;
     width: 400px;
-    height: 150px;
+    height: 100px;
   }
 }
 </style>
