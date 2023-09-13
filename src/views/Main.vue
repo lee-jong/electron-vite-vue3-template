@@ -40,7 +40,7 @@ handleResize();
           class="rtsp fill-height"
           :class="minDisplay && !fullScreen ? 'width-60' : 'fill-width '"
         />
-        <div v-if="!fullScreen" class="mt-3">
+        <div v-if="!fullScreen" class="mt-3 height-40">
           <Controller />
         </div>
         <div v-else class="mt-3 absolute bottom-0">

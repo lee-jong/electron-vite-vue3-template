@@ -18,11 +18,14 @@ import Title from "../../components/commom/Title.vue";
 </template>
 
 <style lang="scss" scoped>
+.group {
+  padding: 10px 30px;
+}
 .robot-controller {
   background-color: gray;
-  border-radius: 200px 200px 0 0;
-  width: 300px;
-  height: 100px;
+  border-radius: 150px 150px 0 0;
+  width: 250px;
+  height: 150px;
 
   div {
     width: 50%;

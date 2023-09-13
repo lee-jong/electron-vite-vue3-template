@@ -8,18 +8,24 @@ import ChatbotController from "./Chatbot.vue";
 <template>
   <div class="d-flex">
     <Menu
+      className="controll-switch"
       icon="mdi-account-convert-outline"
       transition="v-slide-x-reverse-transition"
     >
       <RobotController />
     </Menu>
     <Menu
+      className="controll-switch"
       icon="mdi-camera-enhance-outline"
       transition="v-slide-x-reverse-transition"
     >
       <CameraController />
     </Menu>
-    <Menu icon="mdi-chat" transition="v-slide-x-reverse-transition">
+    <Menu
+      className="controll-switch"
+      icon="mdi-chat"
+      transition="v-slide-x-reverse-transition"
+    >
       <ChatbotController />
     </Menu>
   </div>

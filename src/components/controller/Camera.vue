@@ -3,7 +3,7 @@ import Title from "../../components/commom/Title.vue";
 </script>
 
 <template>
-  <div class="group d-flex flex-column ml-15">
+  <div class="group d-flex flex-column">
     <Title text="[카메라 제어]" />
     <div class="zoom d-flex justify-space-between mt-10">
       <div v-for="icon in ['plus', 'minus']" :key="icon">
@@ -23,11 +23,11 @@ import Title from "../../components/commom/Title.vue";
 <style lang="scss" scoped>
 .group {
   position: relative;
-  width: 300px;
+  padding: 10px 30px 60px 30px;
 
   .zoom {
     position: absolute;
-    width: 100%;
+    width: 300px;
     top: 0px;
   }
 
@@ -51,8 +51,8 @@ import Title from "../../components/commom/Title.vue";
   .camera-controller > div > div {
     border-radius: 10% 10% 90% 90%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     background-color: gray;
   }
   .camera-btn_1 {
@@ -69,6 +69,10 @@ import Title from "../../components/commom/Title.vue";
 
   .camera-btn_4 {
     transform: rotate(135deg);
+  }
+
+  i {
+    margin-left: 0 !important;
   }
 }
 </style>

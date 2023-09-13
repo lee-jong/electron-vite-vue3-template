@@ -10,23 +10,35 @@ const handleFullScreen = (yn: boolean) => {
 </script>
 
 <template>
-  <div class="d-flex justify-space-between pa-10">
-    <div class="d-flex">
-      <v-icon icon="icons:logo" />
-      <div>원격 관람 프로그램</div>
-      <v-icon icon="mdi-alert-circle-outline" />
+  <div class="header d-flex justify-space-between align-center px-3">
+    <div class="d-flex align-center">
+      <v-icon icon="icons:logo" size="60" />
+      <div class="font-g24 font-weight-bold ml-1">원격 관람 프로그램</div>
+      <v-icon class="ml-1" icon="mdi-alert-circle-outline" />
     </div>
     <div>
-      <div>[ 남은 시간 : 119분 59초 ]</div>
+      <div class="font-g24 font-weight-bold">[ 남은 시간 : 119분 59초 ]</div>
     </div>
     <div v-if="!fullScreenYn">
-      <div @click="handleFullScreen(true)">전체 화면 보기</div>
+      <div class="font-g24 font-weight-bold" @click="handleFullScreen(true)">
+        전체 화면 보기
+      </div>
     </div>
     <div>
-      <div v-if="!fullScreenYn">종료하기</div>
-      <div v-if="fullScreenYn" @click="handleFullScreen(false)">
+      <div class="font-g24 font-weight-bold" v-if="!fullScreenYn">종료하기</div>
+      <div
+        class="font-g24 font-weight-bold"
+        v-if="fullScreenYn"
+        @click="handleFullScreen(false)"
+      >
         전체 화면 종료
       </div>
     </div>
   </div>
 </template>
+
+<style scoped lang="scss">
+.header {
+  height: 102px;
+}
+</style>
