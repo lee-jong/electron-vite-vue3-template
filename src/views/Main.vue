@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import { onMounted, computed } from "vue";
+import { useDisplayStore } from "../store/display";
+
+import Controller from "../components/controller/index.vue";
 import Rtsp from "../components/Rtsp.vue";
 import Info from "../components/Info.vue";
-import Controller from "../components/Controller.vue";
-import { useDisplayStore } from "../store/display";
+import Menu from "../components/commom/Menu.vue";
+import SwitchController from "../components/controller/Switch.vue";
 
 const displayStore = useDisplayStore();
 const minDisplay = computed(() => displayStore.size == "md");
+const fullScreen = computed(() => displayStore.fullScreen);
 
 onMounted(() => {
   window.addEventListener("resize", handleResize);
@@ -16,10 +20,10 @@ const handleResize = (e?: UIEvent) => {
   const width = window.innerWidth;
   switch (true) {
     case width < 1550:
-      displayStore.setSize("md");
+      displayStore.fetchSize("md");
       break;
     case width >= 1550:
-      displayStore.setSize("lg");
+      displayStore.fetchSize("lg");
       break;
   }
 };
@@ -32,22 +36,29 @@ handleResize();
   <div class="container">
     <div class="d-flex fill">
       <div class="d-flex flex-column fill-width">
-        <Rtsp class="rtsp" :class="minDisplay ? 'width-65' : ''" />
-        <Controller class="mt-3" />
+        <Rtsp
+          class="rtsp fill-height"
+          :class="minDisplay && !fullScreen ? 'width-60' : 'fill-width '"
+        />
+        <div v-if="!fullScreen" class="mt-3">
+          <Controller />
+        </div>
+        <div v-else class="mt-3 absolute bottom-0">
+          <SwitchController />
+        </div>
       </div>
-      <div v-if="!minDisplay" class="width-35">
+      <div v-if="!minDisplay && !fullScreen" class="width-40">
         <Info />
       </div>
-      <v-menu v-else transition="slide-x-reverse-transition">
-        <template v-slot:activator="{ props }">
-          <v-btn v-bind="props" size="60" color="black" style="z-index: 2001">
-            <v-icon icon="mdi-view-headline" size="40" />
-          </v-btn>
-        </template>
-        <v-list>
+      <div v-if="minDisplay || fullScreen" class="absolute right-0">
+        <Menu
+          className="info-menu"
+          icon="mdi-view-headline"
+          transition="slide-x-reverse-transition"
+        >
           <Info class="pt-15" />
-        </v-list>
-      </v-menu>
+        </Menu>
+      </div>
     </div>
   </div>
 </template>
@@ -56,10 +67,6 @@ handleResize();
 .container {
   width: 100%;
   height: calc(100% - 104px);
-}
-
-.rtsp {
-  aspect-ratio: 16 / 9;
 }
 
 .fill {

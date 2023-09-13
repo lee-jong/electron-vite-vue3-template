@@ -9,10 +9,14 @@ export const useDisplayStore = defineStore({
      * @lg : > 1550
      */
     size: "sm",
+    fullScreen: false,
   }),
   actions: {
-    setSize(type: "md" | "lg") {
+    fetchSize(type: "md" | "lg") {
       this.size = type;
+    },
+    fetchFullScreen(yn: boolean) {
+      this.fullScreen = yn;
     },
   },
 });

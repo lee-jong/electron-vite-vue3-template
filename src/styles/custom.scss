@@ -10,14 +10,14 @@
   height: 100%;
 }
 
-.v-overlay__content {
+.info-menu > .v-overlay__content {
   top: 102px !important;
   bottom: 0px !important;
   width: calc(100vw * 0.25) !important;
   margin: 0;
-  left: calc(100% - 400px) !important;
+  left: calc(100% - 600px) !important;
   padding: 0;
-  width: 400px !important;
+  width: 600px !important;
 
   background-color: red;
 }
