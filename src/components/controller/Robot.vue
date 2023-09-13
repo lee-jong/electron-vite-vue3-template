@@ -3,7 +3,7 @@ import Title from "../../components/commom/Title.vue";
 </script>
 
 <template>
-  <div class="group_1 d-flex flex-column">
+  <div class="group d-flex flex-column">
     <Title text="[로봇 자세 제어]" />
     <div class="robot-controller d-flex align-center mt-10">
       <div class="robot-right-btn d-flex justify-center">

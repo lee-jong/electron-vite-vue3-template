@@ -73,14 +73,4 @@ handleResize();
   width: 100%;
   height: 100%;
 }
-
-main {
-  width: 60%;
-}
-
-.test {
-  position: absolute !important;
-  top: 0px !important;
-  right: 0px !important;
-}
 </style>

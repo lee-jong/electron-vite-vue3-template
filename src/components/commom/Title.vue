@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<title>(), {
   <div class="d-flex">
     <div v-html="text" />
     <div>
-      <v-icon class="ml-2" icon="mdi-alert-circle-outline"> </v-icon>
+      <v-icon class="ml-2" icon="mdi-alert-circle-outline" />
       <v-tooltip activator="parent">{{ props.tooltip }}</v-tooltip>
     </div>
   </div>
