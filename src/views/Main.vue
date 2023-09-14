@@ -7,6 +7,7 @@ import Rtsp from "../components/Rtsp.vue";
 import Info from "../components/Info.vue";
 import Menu from "../components/commom/Menu.vue";
 import SwitchController from "../components/controller/Switch.vue";
+import Header from "../components/Layout/Header.vue"; // layout
 
 const displayStore = useDisplayStore();
 const minDisplay = computed(() => displayStore.size == "md");
@@ -33,6 +34,7 @@ handleResize();
 </script>
 
 <template>
+  <Header />
   <div class="container">
     <div class="d-flex fill">
       <div class="d-flex flex-column fill-width">
