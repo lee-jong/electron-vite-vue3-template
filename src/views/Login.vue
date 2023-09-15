@@ -55,14 +55,14 @@ const login = () => {
       class="mt-4"
       :validation="emailValid"
       prefix="e-mail"
-      @blur="(val) => (userInfo.email = val)"
+      @blur="(val : string) => (userInfo.email = val)"
       @login="login"
     />
     <TextField
       class="mt-4"
       :validation="pwValid"
       prefix="비밀번호"
-      @blur="(val) => (userInfo.pw = val)"
+      @blur="(val : string) => (userInfo.pw = val)"
       @login="login"
     />
     <div>

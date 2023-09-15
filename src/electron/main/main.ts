@@ -2,7 +2,6 @@ import { join } from "path";
 import { app, BrowserWindow, ipcMain, dialog } from "electron";
 
 const isDev = process.env.npm_lifecycle_event === "app:dev" ? true : false;
-
 async function handleFileOpen() {
   const { canceled, filePaths } = await dialog.showOpenDialog({
     title: "Open File",
@@ -29,16 +28,11 @@ function createWindow() {
 
   // and load the index.html of the app.
   if (isDev) {
-    mainWindow.loadURL("http://localhost:5173"); // Open the DevTools.
+    mainWindow.loadURL("http://localhost:5174"); // Open the DevTools.
     mainWindow.webContents.openDevTools();
   } else {
     mainWindow.loadFile(join(__dirname, "../../../index.html"));
   }
-  // mainWindow.loadURL( //this doesn't work on macOS in build and preview mode
-  //     isDev ?
-  //     'http://localhost:3000' :
-  //     join(__dirname, '../../index.html')
-  // );
 }
 
 // This method will be called when Electron has finished
@@ -53,7 +47,6 @@ app.whenReady().then(() => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
 });
-
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
@@ -61,4 +54,28 @@ app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
     app.quit();
   }
+});
+
+const RTSP = () => {
+  // RTSP
+  const Stream = require("node-rtsp-stream");
+  const ffmpegPath = require("ffmpeg-static");
+  const streamUrl =
+    "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mp4";
+
+  const stream = new Stream({
+    name: "clobot",
+    streamUrl,
+    wsPort: 9999,
+    ffmpegPath,
+    ffmpegOptions: {
+      "-stats": "",
+      "-r": 30,
+    },
+  });
+  stream.on("data", (data: any) => console.log("data", data));
+};
+
+app.on("ready", () => {
+  // RTSP();
 });
